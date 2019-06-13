@@ -38,7 +38,7 @@ class App extends React.Component {
       this.setState({ online: false });
     });
 
-    fetch("http://my-json-server.typicode.com/marvinjude/json-api/speakers/")
+    fetch("https://my-json-server.typicode.com/marvinjude/json-api/speakers/")
       .then(response => response.json())
       .then(users => {
         this.setState({ users, fetching: false });

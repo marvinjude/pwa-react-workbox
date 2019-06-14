@@ -9,23 +9,7 @@ class App extends React.Component {
 
   getInitialState = () => ({
     online: navigator.onLine,
-    users: [
-      {
-        name: "Agboola Jude",
-        bio: "Software Engineer @charisol",
-        image: "https://imgur.com/gallery/PQZFoZ1"
-      },
-      {
-        name: "Agboola Jude",
-        bio: "Software Engineer @charisol",
-        image: "https://imgur.com/gallery/PQZFoZ1"
-      },
-      {
-        name: "Agboola Jude",
-        bio: "Software Engineer @charisol",
-        image: "https://imgur.com/gallery/PQZFoZ1"
-      }
-    ],
+    users: [],
     fetching: true
   });
 
@@ -56,32 +40,61 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <header style={styles.header}>
           <img alt="brand" src={brandImg} style={styles.logo} />
         </header>
-        <div
-          style={
-            this.state.online
-              ? styles.networkStat__online
-              : styles.networkStat__offline
-          }
-        >
-          {this.state.online ? "Online" : "Offline"}
-        </div>
-        <div style={styles.container}>
-          {!this.state.fetching &&
-            this.state.users.map(({ name, bio }) => (
-              <div key={name} style={styles.card}>
-                <div style={styles.circle} />
-                <div>
-                  <h3>{name}</h3>
-                  <p>{bio}</p>
-                </div>
-              </div>
-            ))}
-        </div>
-      </div>
+        {(!this.state.fetching && (
+          <>
+            <div
+              style={
+                this.state.online
+                  ? styles.networkStat__online
+                  : styles.networkStat__offline
+              }
+            >
+              {this.state.online ? "Online" : "Offline"}
+            </div>
+            <div style={styles.container}>
+              {!this.state.fetching &&
+                this.state.users.map(({ name, bio, talk }) => (
+                  <div style={styles.card}>
+                    <div style={{ ...styles.circle, ...RandomColor() }} />
+                    <div>
+                      <h3>{name}</h3>
+                      <p style={styles.smallText}>{bio}</p>
+                      <p>{talk}</p>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </>
+        )) || (
+          <div
+            style={{
+              height: "calc(100% - 50px)",
+              flex: "1 1 0",
+              justifyContent: "center",
+              alignItems: "center",
+              display: "flex"
+            }}
+          >
+            <div class="loader">
+              <svg class="circular" viewBox="25 25 50 50">
+                <circle
+                  class="path"
+                  cx="50"
+                  cy="50"
+                  r="20"
+                  fill="none"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                />
+              </svg>
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 }
@@ -113,10 +126,16 @@ const styles = {
   networkStat__offline: { ...networkStat, backgroundColor: "#db3236" },
   circle: {
     width: "3rem",
-    backgroundColor: "gold",
+    backgroundColor: RandomColor(),
     height: "3rem",
     borderRadius: "50%",
-    marginRight: "10px"
+    marginRight: "10px",
+    flexShrink: "0"
+  },
+  smallText: {
+    fontWeight: "200",
+    color: "gray",
+    fontSize: "0.85rem"
   },
   container: { display: "flex", flexDirection: "column" },
   card: {
@@ -128,3 +147,10 @@ const styles = {
   }
 };
 export default App;
+
+function RandomColor() {
+  const R = Math.round((Math.random() * 1000) % 255);
+  const G = Math.round((Math.random() * 1000) % 255);
+  const B = Math.round((Math.random() * 1000) % 255);
+  return { backgroundColor: `rgb(${R}, ${G}, ${B})` };
+}

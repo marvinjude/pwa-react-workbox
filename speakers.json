@@ -1,9 +1,34 @@
 {
   "speakers": [
     {
+      "name": "Daniel Ajisafe",
+      "bio": "Data Scientist",
+      "talk": "The future of AI in Africa and the diaspora",
+      "image": "https://imgur.com/gallery/PQZFoZ1"
+    },
+    {
       "name": "Agboola Jude",
       "bio": "Software Engineer @charisol",
-      "image": "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwir7Yq54uPiAhWiVt8KHUPPD20QjRx6BAgBEAU&url=%2Furl%3Fsa%3Di%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252Fcodeburst.io%252F%2540marvinjudehk%26psig%3DAOvVaw2WzSulNBdpNnjts5OenLsS%26ust%3D1560422880879030&psig=AOvVaw2WzSulNBdpNnjts5OenLsS&ust=1560422880879030"
+      "talk": "Developing your first PWA using reactjs",
+      "image": "https://imgur.com/gallery/PQZFoZ1"
+    },
+    {
+      "name": "Akinwale Yetunde",
+      "bio": "Android Developer",
+      "talk": "Google digital Wellbeing",
+      "image": "https://imgur.com/gallery/PQZFoZ1"
+    },
+    {
+      "name": "Temitayo Adefioye",
+      "bio": "Associate Android Developer",
+      "talk": "Building a sustainable software development career",
+      "image": "https://imgur.com/gallery/PQZFoZ1"
+    },
+    {
+      "name": "Afakpe Ruth",
+      "bio": "Data Scientist",
+      "talk": "Google digital Wellbeing",
+      "image": "https://imgur.com/gallery/PQZFoZ1"
     }
   ]
 }
